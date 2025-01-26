@@ -1,4 +1,4 @@
-package videoto_ts_forhosting_go
+package videoto
 
 import (
 	"bytes"
@@ -9,9 +9,7 @@ import (
 	"strings"
 )
 
-func Screenshots(inputFile string, outputDir string) {
-
-	numScreenshots := 3 // Количество скриншотов
+func Screenshots(inputFile string, outputDir string, numScreenshots int) {
 
 	// Создаем папку для скриншотов, если её нет
 	if _, err := os.Stat(outputDir); os.IsNotExist(err) {

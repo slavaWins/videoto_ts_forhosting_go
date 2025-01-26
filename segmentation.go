@@ -1,4 +1,4 @@
-package videoto_ts_forhosting_go
+package videoto
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 )
 
-func Segmentation(inputFile string, outputDir string, baseName string) {
+func TsSegmentation(inputFile string, outputDir string, baseName string) {
 
 	// Имя выходного плейлиста
 	m3u8File := filepath.Join(outputDir, baseName+".m3u8")
@@ -47,7 +47,7 @@ func Segmentation(inputFile string, outputDir string, baseName string) {
 	fmt.Println("Сегменты находятся в папке:", outputDir)
 }
 
-func ConvertToWebP(inputFile string, outputDir string) error {
+func WebpPreview(inputFile string, outputDir string) error {
 	// Путь для выходного сжатого webp-файла
 	outputFile := filepath.Join(outputDir, "preview.webp")
 
