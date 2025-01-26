@@ -42,23 +42,24 @@ func TsSegmentation(inputFile string, outputDir string, baseName string) {
 		return
 	}
 
-	//fmt.Println("Сегментация завершена! Плейлист и сегменты сохранены.")
-	//	fmt.Println("Путь к .m3u8:", m3u8File)
-	//fmt.Println("Сегменты находятся в папке:", outputDir)
+	fmt.Println("Сегментация завершена! Плейлист и сегменты сохранены.")
+	fmt.Println("Путь к .m3u8:", m3u8File)
+	fmt.Println("Сегменты находятся в папке:", outputDir)
 }
 
-func WebpPreview(inputFile string, outputDir string) error {
+func PreviewWebp(inputFile string, outputDir string) error {
 	// Путь для выходного сжатого webp-файла
 	outputFile := filepath.Join(outputDir, "preview.webp")
 
 	cmd := exec.Command(
 		"ffmpeg",
-		"-i", inputFile,
+		"-i", inputFile, // Входной файл
 		"-t", "5",
-		"-an",
-		"-vf", "scale=640:360:force_original_aspect_ratio=increase,crop=640:360",
-		"-vcodec", "libwebp",
-		"-q:v", "20",
+		"-an",                                                                           // Без аудио
+		"-vf", "fps=25,scale=640:360:force_original_aspect_ratio=increase,crop=640:360", // FPS и разрешение
+		"-vcodec", "libwebp", // Кодек WebP
+		"-q:v", "15",
+		"-b:v", "150k", // Ограничение битрейта
 		outputFile,
 	)
 
@@ -68,7 +69,32 @@ func WebpPreview(inputFile string, outputDir string) error {
 		return fmt.Errorf("failed to create webp: %v", err)
 	}
 
-	//fmt.Printf("WebP файл успешно создан: %s\n", outputFile)
+	fmt.Printf("WebP111 файл успешно создан: %s\n", outputFile)
+	return nil
+}
+
+func PreviewMp4(inputFile string, outputDir string) error {
+	// Путь для выходного сжатого webp-файла
+	outputFile := filepath.Join(outputDir, "preview.mp4")
+
+	cmd := exec.Command(
+		"ffmpeg",
+		"-i", inputFile, // Входной файл
+		"-t", "5",
+		"-an",                                                                           // Без аудио
+		"-vf", "fps=25,scale=640:360:force_original_aspect_ratio=increase,crop=640:360", // FPS и разрешение
+		"-q:v", "25",
+		"-b:v", "150k", // Ограничение битрейта
+		outputFile,
+	)
+
+	// Запускаем команду и проверяем на ошибки
+	err := cmd.Run()
+	if err != nil {
+		return fmt.Errorf("failed to create webp: %v", err)
+	}
+
+	fmt.Printf("WebP111 файл успешно создан: %s\n", outputFile)
 	return nil
 }
 

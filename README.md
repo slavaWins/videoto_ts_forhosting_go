@@ -1,10 +1,6 @@
 <div align="center">
 
-<h1> 
-    <b style="color: #ea1b1b">videoto</b> 
-     <small style="position: relative; top: -1.2em; left: -0.8em; font-size: 0.3em">GO</small>
-     <small style="font-size: 0.5em; opacity: 0.6;">for video hostings</small>
-    </h1>
+<h1>      videoto     </h1>
     <small>hls, ts, mp4 to ts, video to screenshots, golang</small>
 </div>
  
@@ -38,7 +34,8 @@ https://www.ffmpeg.org/
 
     videoto.Screenshots("testfile/input.mp4", "output", 3)
     videoto.TsSegmentation("testfile/input.mp4", "output", "segment")
-    videoto.WebpPreview("testfile/input.mp4", "output")
+    videoto.PreviewWebp("testfile/input.mp4", "output")
+    videoto.PreviewMp4("testfile/input.mp4", "output")
 
 На выходе получаться 
 - 3 скрина
