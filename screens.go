@@ -21,7 +21,7 @@ func Screenshots(inputFile string, outputDir string, numScreenshots int) {
 	}
 
 	// Определение длительности видео с помощью ffprobe
-	duration, err := getVideoDuration(inputFile)
+	duration, err := GetVideoDuration(inputFile)
 	if err != nil {
 		fmt.Printf("Ошибка при определении длительности видео: %v\n", err)
 		return
@@ -64,7 +64,7 @@ func Screenshots(inputFile string, outputDir string, numScreenshots int) {
 }
 
 // Функция для получения продолжительности видео через ffprobe
-func getVideoDuration(filePath string) (float64, error) {
+func GetVideoDuration(filePath string) (float64, error) {
 	cmd := exec.Command(
 		"ffprobe",
 		"-i", filePath,

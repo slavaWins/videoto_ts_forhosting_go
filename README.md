@@ -13,7 +13,7 @@ Golang библиотека для конвертации видео, на ос�
 
 ## Install
 
-    go get slavaWins/videoto_ts_forhosting_go
+    github.com/slavaWins/videoto_ts_forhosting_go
 
 
 ## Req ffmpeg
