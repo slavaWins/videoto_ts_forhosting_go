@@ -34,7 +34,7 @@ func Screenshots(inputFile string, outputDir string, numScreenshots int) {
 
 	// Рассчитываем временные метки для каждого скриншота
 	interval := duration / float64(numScreenshots)
-	fmt.Println("Длительность видео:", duration, "секунд. Интервал между скриншотами:", interval)
+	//fmt.Println("Длительность видео:", duration, "секунд. Интервал между скриншотами:", interval)
 
 	for i := 0; i < numScreenshots; i++ {
 		timeStamp := interval * float64(i)
@@ -59,7 +59,7 @@ func Screenshots(inputFile string, outputDir string, numScreenshots int) {
 			return
 		}
 
-		fmt.Printf("Скриншот %d успешно сохранен: %s\n", i+1, outputFile)
+		//	fmt.Printf("Скриншот %d успешно сохранен: %s\n", i+1, outputFile)
 	}
 }
 

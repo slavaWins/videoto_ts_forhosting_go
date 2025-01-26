@@ -42,9 +42,9 @@ func TsSegmentation(inputFile string, outputDir string, baseName string) {
 		return
 	}
 
-	fmt.Println("Сегментация завершена! Плейлист и сегменты сохранены.")
-	fmt.Println("Путь к .m3u8:", m3u8File)
-	fmt.Println("Сегменты находятся в папке:", outputDir)
+	//fmt.Println("Сегментация завершена! Плейлист и сегменты сохранены.")
+	//	fmt.Println("Путь к .m3u8:", m3u8File)
+	//fmt.Println("Сегменты находятся в папке:", outputDir)
 }
 
 func WebpPreview(inputFile string, outputDir string) error {
@@ -68,7 +68,7 @@ func WebpPreview(inputFile string, outputDir string) error {
 		return fmt.Errorf("failed to create webp: %v", err)
 	}
 
-	fmt.Printf("WebP файл успешно создан: %s\n", outputFile)
+	//fmt.Printf("WebP файл успешно создан: %s\n", outputFile)
 	return nil
 }
 
